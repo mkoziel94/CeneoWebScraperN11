@@ -7,6 +7,7 @@ import os
 import pandas as pd
 import numpy as np
 from matplotlib import pyplot as plt
+import markdown as md
 
 def extract_element(ancestor, selector, attribute=None, extract_list=False):
     try:
@@ -32,7 +33,15 @@ selectors = {
 
 @app.route('/')
 def index():
-    return render_template("index.html.jinja")
+    libraries = []
+    for file in ["requirements.txt"]:
+        with open(file, "r") as tfile:
+            entries = tfile.readlines()
+            for entry in entries:
+                libraries.append('<li>' + entry.replace('==', ' <span class="badge text-bg-light">') + '</span></li>')
+    with open('README.md', "r") as mdfile:
+        readme_html = md.markdown(mdfile.read(), extensions=['markdown.extensions.tables', 'markdown.extensions.fenced_code'])
+    return render_template("index.html.jinja", libraries=libraries, readme_html=readme_html)
 
 @app.route('/author')
 def author():
@@ -50,12 +59,19 @@ def author():
 #     return render_template("extract.html.jinja")
 
 @app.route('/extract', methods=["POST", "GET"])
-def  extract(product_id):
+def  extract():
+    product_id = request.args.get('id')
+    print("PRODUCT ID: ", product_id)
+
+    if product_id is None:
+        return render_template('extract.html.jinja')
+
     url_pre = "https://www.ceneo.pl/"
     url_post = "/opinie-"
     page_no = 1
     all_reviews = []
-    product_id = request.form.get("idInput")
+
+    print('PRODUCT_ID: ', product_id)
 
     while(page_no):
         url = url_pre+product_id+url_post+str(page_no)
@@ -83,13 +99,18 @@ def  extract(product_id):
 
                 all_reviews.append(single_review)
             page_no += 1
-        else: page_no = None
-        return render_template('extract.html.jinja')
+        else:
+            page_no = None
 
     if not os.path.exists("app/reviews"):
         os.makedirs("app/reviews")
     f = open("app/reviews/"+product_id+".json", "w", encoding="UTF-8")
     json.dump(all_reviews, f, indent=4, ensure_ascii=False)
+    print("SAVED")
+    f.close()
+
+    print("ALL REVIEWS: ", all_reviews)
+
     return redirect(url_for('product', product_id=product_id))
 
 

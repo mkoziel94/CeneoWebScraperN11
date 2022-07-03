@@ -1,12 +1,13 @@
 {% extends "base.html.jinja" %}
 {% block content %}
-    <form action="{{ url_for('extract') }}" method="POST">
+    <form action="{{ url_for('extract') }}" method="GET">
         <div class="mb-3">
             <label for="product_id" class="form-label">Id produktu</label>
-            <input type="text" class="form-control" id="product_id" name="product_id" placeholder="Podaj id produktu">
+            <input type="text" class="form-control" id="product_id" name="id" placeholder="Podaj id produktu">
             <input type="submit" class="btn btn-primary" value="Pobierz">
         </div>
     </form>
+    
     {# <h2>{{product_id}}</h2>
     <ul class="list-group">
         {% for key, value in stats.items() %}
