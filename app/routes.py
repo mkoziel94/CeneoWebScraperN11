@@ -47,16 +47,6 @@ def index():
 def author():
     return render_template("author.html.jinja")
 
-# @app.route('/extract', methods=["POST", "GET"])
-# def extract():
-#     if request.method == "POST":
-#         product_id = request.form.get("idInput")
-#         try:
-#             return reviews(product_id)
-#         except ValueError:
-#             return render_template("extract.html.jinja")
-    
-#     return render_template("extract.html.jinja")
 
 @app.route('/extract', methods=["POST", "GET"])
 def  extract():
