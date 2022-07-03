@@ -23,18 +23,27 @@
 3) pobranie wszystkich opinii z pojedynczej strony i zapisanie ich do listy slownikow<br>
 4) pobranie wszystkich opinii o wskazanym produkcie i zapisanie ich do pliku<br>
 5) optymalizacja kodu<br>
-    1) zdefiniowanie funkcji do ekstrakcji elementow strony HTML<br>
-    2) utworzenie slownika selektorow opisujacego pojedyncza opinie<br>
-    3) zastapienie ekstrakcji skladowych pojedynczej opinii do niezaleznych zmiennych ekstrakcja tych skladowych w dictionary comprehension w oparciu o slownik selektorow<br>
+    A) zdefiniowanie funkcji do ekstrakcji elementow strony HTML<br>
+    B) utworzenie slownika selektorow opisujacego pojedyncza opinie<br>
+    C) zastapienie ekstrakcji skladowych pojedynczej opinii do niezaleznych zmiennych ekstrakcja tych skladowych w dictionary comprehension w oparciu o slownik selektorow<br>
 6) analiza opinii o wskazanym produkcie<br>
-    1) wyliczenie podstawowych statystyk<br>
-        1) liczba wszystkich opinii o produkcie<br>
-        2) liczba opinii z podana lista zalet<br>
-        3) liczba opinii z podana lista wad<br>
-        4) srednia ocena produktu<br>
-    2) narysowanie wykresow<br>
-        1) udzial poszczegolncyh rekomendacji w ogolnej liczbie opinii<br>
-        2) histogram czestosci wystapien poszczegolnych ocen (liczba gwiazdek)<br>
+    A) wyliczenie podstawowych statystyk<br>
+        a) liczba wszystkich opinii o produkcie<br>
+        b) liczba opinii z podana lista zalet<br>
+        c) liczba opinii z podana lista wad<br>
+        d) srednia ocena produktu<br>
+    B) narysowanie wykresow<br>
+        a) udzial poszczegolncyh rekomendacji w ogolnej liczbie opinii<br>
+        b) histogram czestosci wystapien poszczegolnych ocen (liczba gwiazdek)<br>
+7) przesienie gotowych czesci kodu do wlasciwego projektu<br>
+    A) znalezienie odpowiednich miejsc dla poszczegolnych elementow<br>
+    B) polaczenie z routingiem<br>
+8) uruchomienie flask i jinja<br>
+    A) stworzenie bazy dla plikow jinja<br>
+    B) dodanie stron odwolujacych sie do bazy<br>
+9) dodanie funkcjonalnosci<br>
+    A) dzialajacy ekstraktor<br>
+    B) readme pojawiajace sie na stronie glownej<br>
 
 ## Wykorzystane biblioteki
 
@@ -46,4 +55,3 @@
 - numpy - Analiza danych, glownie liczbowych<br>
 - matplotlib - Tworzenie wykresow na podstawie danych<br>
 - markdown - Obsluga plikow w uproszczonym formacie HTML<br>
-
