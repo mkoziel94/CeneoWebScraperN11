@@ -1,7 +1,8 @@
 {% extends "base.html.jinja" %}
 {% block content %}
 
-    <h2>{{product_id}}</h2>
+    {# <h2 href = "https://www.ceneo.pl/{{product_id}}/">{{product_id}}</h2> #}
+    <font size = "+3"><a href = "https://www.ceneo.pl/{{product_id}}/">{{product_id}}</a></font><br>
     <img src="//image.ceneostatic.pl/data/products/{{product_id}}/f-xiaomi-mi-band-5-czarny.jpg" alt="http://czterycztery.pl/programy/wikiwyscig/show.php?strona=Plik:No_picture_available.png">
     <ul class="list-group">
         {% for key, value in stats.items() %}
