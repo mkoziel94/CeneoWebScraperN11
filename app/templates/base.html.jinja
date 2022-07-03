@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ceneo Web Scraper</title>
+    <title>Ceneo Web Scraper MK</title>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    
 </head>
 <body>
     <header class="text-center container">
@@ -19,7 +20,7 @@
             <a class="nav-link" href="{{url_for('index')}}">Strona główna</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{url_for('extract', product_id=39562616)}}">Ekstrakcja opinii</a>
+            <a class="nav-link" href="{{url_for('extract')}}">Ekstrakcja opinii</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{{url_for('products')}}">Lista produktów</a>
@@ -42,8 +43,12 @@
             </div>
         </div>
     </div>
-    <footer class="text-center container">
-        <p>&copy;Mateusz Kozieł Uniwersytet Ekonomiczny w Krakowie</p>
+    <footer  class="flex-shrink-0 py-4 bg-dark text-white-50">
+        <div class="container text-center">
+            <div class="container text-bottom">
+                <p>&copy;Mateusz Kozieł 223577 Uniwersytet Ekonomiczny w Krakowie</p>
+            </div>
+        </div>
     </footer>
     
 </body>

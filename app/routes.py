@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template, redirect, url_for
+from flask import render_template, request, redirect, url_for
 import json
 import requests
 from bs4 import BeautifulSoup
@@ -38,12 +38,24 @@ def index():
 def author():
     return render_template("author.html.jinja")
 
-@app.route('/extract/<product_id>')
+# @app.route('/extract', methods=["POST", "GET"])
+# def extract():
+#     if request.method == "POST":
+#         product_id = request.form.get("idInput")
+#         try:
+#             return reviews(product_id)
+#         except ValueError:
+#             return render_template("extract.html.jinja")
+    
+#     return render_template("extract.html.jinja")
+
+@app.route('/extract', methods=["POST", "GET"])
 def  extract(product_id):
     url_pre = "https://www.ceneo.pl/"
     url_post = "/opinie-"
     page_no = 1
     all_reviews = []
+    product_id = request.form.get("idInput")
 
     while(page_no):
         url = url_pre+product_id+url_post+str(page_no)
@@ -72,12 +84,15 @@ def  extract(product_id):
                 all_reviews.append(single_review)
             page_no += 1
         else: page_no = None
+        return render_template('extract.html.jinja')
 
     if not os.path.exists("app/reviews"):
         os.makedirs("app/reviews")
     f = open("app/reviews/"+product_id+".json", "w", encoding="UTF-8")
     json.dump(all_reviews, f, indent=4, ensure_ascii=False)
     return redirect(url_for('product', product_id=product_id))
+
+
 
 @app.route('/products')
 def  products():
