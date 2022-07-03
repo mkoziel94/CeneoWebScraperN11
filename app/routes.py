@@ -117,10 +117,10 @@ def  products():
 def  product(product_id):
     opinions = pd.read_json("app/reviews/"+product_id+".json")
     stats = {
-        "opinions_count": len(opinions),
-        "pros_count": opinions["pros"].astype(bool).sum(),
-        "cons_count": opinions["cons"].astype(bool).sum(),
-        "average_score": opinions["stars"].mean().round(2)
+        "Ilość opinii": len(opinions),
+        "Ilość plusów": opinions["pros"].astype(bool).sum(),
+        "Ilość minusów": opinions["cons"].astype(bool).sum(),
+        "Przeciętny wynik": opinions["stars"].mean().round(2)
     }
     if not os.path.exists("app/plots"):
         os.makedirs("app/plots")
