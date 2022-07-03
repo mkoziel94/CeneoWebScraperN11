@@ -36,7 +36,7 @@
         1) udział poszczególncyh rekomendacji w ogólnej liczbie opinii
         2) histogram częstości wystąpień poszczególnych ocen (liczba gwiazdek)
 
-##Wykorzystane biblioteki
+##Wykorzystane biblioteki - ciastko
 
 - flask - Framework, który służy do tworzenia aplikacji
 - json - Umożliwia działanie na plikach .json - zapis i odczyt plików
