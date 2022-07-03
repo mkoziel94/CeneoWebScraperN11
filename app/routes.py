@@ -41,6 +41,7 @@ def index():
                 libraries.append('<li>' + entry.replace('==', ' <span class="badge text-bg-light">') + '</span></li>')
     with open('README.md', "r") as mdfile:
         readme_html = md.markdown(mdfile.read(), extensions=['markdown.extensions.tables', 'markdown.extensions.fenced_code'])
+
     return render_template("index.html.jinja", libraries=libraries, readme_html=readme_html)
 
 @app.route('/author')
