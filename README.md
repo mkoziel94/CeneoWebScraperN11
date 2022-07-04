@@ -2,7 +2,7 @@
 
 ## Analiza struktury opinii w serwisie [Ceneo.pl](https://www.ceneo.pl/)
 
-|Skadowa|Selektor|Zmienna|Typ zmiennej|
+|Skladowa|Selektor|Zmienna|Typ zmiennej|
 |--------|--------|-------|------------|
 |opinia|div.js_product-review|review|bs4.element.Tag|
 |identyfikator opinii|\["data-entry-id"\]|review_id|str|
