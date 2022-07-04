@@ -8,6 +8,7 @@ import pandas as pd
 import numpy as np
 from matplotlib import pyplot as plt
 import markdown as md
+import shutil
 
 def extract_element(ancestor, selector, attribute=None, extract_list=False):
     try:
@@ -88,9 +89,9 @@ def  extract():
         else:
             page_no = None
 
-    if not os.path.exists("app/reviews"):
-        os.makedirs("app/reviews")
-    f = open("app/reviews/"+product_id+".json", "w", encoding="UTF-8")
+    if not os.path.exists("app/static/reviews"):
+        os.makedirs("app/static/reviews")
+    f = open("app/static/reviews/"+product_id+".json", "w", encoding="UTF-8")
     json.dump(all_reviews, f, indent=4, ensure_ascii=False)
     print("SAVED")
     f.close()
@@ -103,22 +104,23 @@ def  extract():
 
 @app.route('/products')
 def  products():
-    if not os.path.exists("app/reviews"):
-        os.makedirs("app/reviews")
-    products = [filename.split(".")[0] for filename in os.listdir("app/reviews")]
+    if not os.path.exists("app/static/reviews"):
+        os.makedirs("app/static/reviews")
+    products = [filename.split(".")[0] for filename in os.listdir("app/static/reviews")]
     return render_template("products.html.jinja", products=products)
 
 @app.route('/product/<product_id>')
 def  product(product_id):
-    opinions = pd.read_json("app/reviews/"+product_id+".json")
+    opinions = pd.read_json("app/static/reviews/"+product_id+".json")
     stats = {
         "Ilość opinii": len(opinions),
         "Ilość plusów": opinions["pros"].astype(bool).sum(),
         "Ilość minusów": opinions["cons"].astype(bool).sum(),
         "Przeciętny wynik": opinions["stars"].mean().round(2)
     }
-    if not os.path.exists("app/plots"):
-        os.makedirs("app/plots")
+
+    if not os.path.exists("app/static/plots"):
+        os.makedirs("app/static/plots")
     recommendations = opinions["recommendation"].value_counts(dropna=False).sort_index().reindex([False, True, None], fill_value=0)
     recommendations.plot.pie(
         autopct = "%.1f%%",
@@ -127,12 +129,13 @@ def  product(product_id):
         labels = ["Nie polecam", "Polecam", "Nie mam zdania"],
         colors = ["crimson", "forestgreen", "lightskyblue"]
     )
-    plt.savefig("app/plots/"+product_id+"_recommendations.png")
+    plt.savefig("app/static/plots/"+product_id+"_recommendations.png")
     plt.close()
     stars = opinions["stars"].value_counts(dropna=False).sort_index().reindex(np.arange(0,5.5,0.5), fill_value=0)
     stars.plot.bar(
         title = "Oceny"
     )
-    plt.savefig("app/plots/"+product_id+"_stars.png")
+    plt.savefig("app/static/plots/"+product_id+"_stars.png")
     plt.close()
+
     return render_template("product.html.jinja", product_id=product_id, stats=stats, opinions=opinions)

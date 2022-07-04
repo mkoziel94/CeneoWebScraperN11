@@ -13,16 +13,13 @@
             </li>
         {% endfor %}
     </ul>
-    
-    
-    <img src="../plots/{{product_id}}_recommendations.png" class="rounded float-start" alt="Rekomendacje">
-    <img src="../plots/{{product_id}}_stars.png" class="rounded float-start" alt="Oceny">
-    {# <img src="{{url_for('plots', filename={{product_id}} + '_stars.png')}}"> #}
-    
-    <div class="center">
-        <button id= "json_button" class="button button1">WYŚWIETL</button>
-    </div>
-    <form method="get" action="../reviews/{{product_id}}.json">
-        <button type="submit">POBIERZ</button>
+    <form method="get" action="/static/reviews/{{product_id}}.json">
+        <button type="submit">POKAŻ DANE</button>
     </form>
+    
+    <img src="/static/plots/{{product_id}}_recommendations.png" class="rounded float-start" alt="Rekomendacje">
+    <img src="/static/plots/{{product_id}}_stars.png" class="rounded float-start" alt="Oceny" style="margin-bottom:100px">
+
+    
+
 {% endblock content %}
