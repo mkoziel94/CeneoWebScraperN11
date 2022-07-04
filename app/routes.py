@@ -8,7 +8,6 @@ import pandas as pd
 import numpy as np
 from matplotlib import pyplot as plt
 import markdown as md
-import shutil
 
 def extract_element(ancestor, selector, attribute=None, extract_list=False):
     try:
