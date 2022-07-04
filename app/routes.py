@@ -33,16 +33,11 @@ selectors = {
 
 @app.route('/')
 def index():
-    libraries = []
-    for file in ["requirements.txt"]:
-        with open(file, "r") as tfile:
-            entries = tfile.readlines()
-            for entry in entries:
-                libraries.append('<li>' + entry.replace('==', ' <span class="badge text-bg-light">') + '</span></li>')
-    with open('README.md', "r") as mdfile:
-        readme_html = md.markdown(mdfile.read(), extensions=['markdown.extensions.tables', 'markdown.extensions.fenced_code'])
+    
+    with open('README.md') as md_file:
+        md_to_html = md.markdown(md_file.read(), extensions = ['tables', 'markdown.extensions.fenced_code'])
 
-    return render_template("index.html.jinja", libraries=libraries, readme_html=readme_html)
+    return render_template('index.html.jinja', markdown = md_to_html)
 
 @app.route('/author')
 def author():

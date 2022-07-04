@@ -1,6 +1,10 @@
 {% extends "base.html.jinja" %}
 {% block content %}
-    
-    
-    {{ readme_html }}
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            
+        }
+    </style>
+    {{ markdown  }}
 {% endblock content %}

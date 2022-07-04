@@ -13,8 +13,53 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
         crossorigin="anonymous"></script>
+    <style>
+    .button {
+        border: none;
+        color: white;
+  
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
 
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
 
+    .button1 {
+        background-color: white; 
+        color: black; 
+        border: 2px solid #000000;
+    }
+    #footer{
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 60px;
+    }
+
+    #Table1 {
+        width: 90%;
+        height: 10px;
+        display: none;
+        margin-bottom: 100px;
+        margin-left: auto;
+        margin-right: auto;
+        color: #ffffff;
+    }
+    </style>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById("json_button").addEventListener("click", function(){
+        console.log("json");
+        fetch("../reviews/{{product_id}}.json").then(response => response.text())
+        .then((text) => 
+        {document.getElementById("json").innerHTML = JSON.stringify(text);
+        })
+        });
+    });
+    </script>
 </head>
 
 <body>
@@ -49,13 +94,15 @@
             </div>
         </div>
     </div>
-    <footer class="flex-shrink-0 py-4 bg-dark text-white-50">
-        <div class="container text-center">
-            <div class="container text-bottom">
+    <div id = "footer">
+        <footer class="flex-shrink-0 py-4 bg-dark text-white-50">
+            <div class="container text-center">
+
                 <p>&copy;Mateusz Kozieł 223577 Uniwersytet Ekonomiczny w Krakowie</p>
+
             </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
 </body>
 

@@ -4,6 +4,7 @@
     {# <h2 href = "https://www.ceneo.pl/{{product_id}}/">{{product_id}}</h2> #}
     <font size = "+3"><a href = "https://www.ceneo.pl/{{product_id}}/">{{product_id}}</a></font><br>
     <img src="//image.ceneostatic.pl/data/products/{{product_id}}/f-xiaomi-mi-band-5-czarny.jpg" alt="http://czterycztery.pl/programy/wikiwyscig/show.php?strona=Plik:No_picture_available.png">
+    
     <ul class="list-group">
         {% for key, value in stats.items() %}
             <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -12,8 +13,16 @@
             </li>
         {% endfor %}
     </ul>
-    <img src="/plots/{{product_id}}_recommendations.png/" class="rounded float-start" alt="Rekomendacje">
-    <img src="/plots/{{product_id}}_stars.png" class="rounded float-start" alt="Oceny">
-    {# <img src="{{url_for('app/plots', filename=product_id + '_stars.png')}}" alt="Oceny"> #}
-
+    
+    
+    <img src="../plots/{{product_id}}_recommendations.png" class="rounded float-start" alt="Rekomendacje">
+    <img src="../plots/{{product_id}}_stars.png" class="rounded float-start" alt="Oceny">
+    {# <img src="{{url_for('plots', filename={{product_id}} + '_stars.png')}}"> #}
+    
+    <div class="center">
+        <button id= "json_button" class="button button1">WYŚWIETL</button>
+    </div>
+    <form method="get" action="../reviews/{{product_id}}.json">
+        <button type="submit">POBIERZ</button>
+    </form>
 {% endblock content %}

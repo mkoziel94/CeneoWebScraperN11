@@ -2,7 +2,7 @@
 
 ## Analiza struktury opinii w serwisie [Ceneo.pl](https://www.ceneo.pl/)
 
-|Skladowa|Selektor|Zmienna|Typ zmiennej|
+|Skadowa|Selektor|Zmienna|Typ zmiennej|
 |--------|--------|-------|------------|
 |opinia|div.js_product-review|review|bs4.element.Tag|
 |identyfikator opinii|\["data-entry-id"\]|review_id|str|
@@ -23,27 +23,27 @@
 3) pobranie wszystkich opinii z pojedynczej strony i zapisanie ich do listy slownikow<br>
 4) pobranie wszystkich opinii o wskazanym produkcie i zapisanie ich do pliku<br>
 5) optymalizacja kodu<br>
-    A) zdefiniowanie funkcji do ekstrakcji elementow strony HTML<br>
-    B) utworzenie slownika selektorow opisujacego pojedyncza opinie<br>
-    C) zastapienie ekstrakcji skladowych pojedynczej opinii do niezaleznych zmiennych ekstrakcja tych skladowych w dictionary comprehension w oparciu o slownik selektorow<br>
+    <p style="text-indent:20px;">A) zdefiniowanie funkcji do ekstrakcji elementow strony HTML<br></p>
+    <p style="text-indent:20px;">B) utworzenie slownika selektorow opisujacego pojedyncza opinie<br></p>
+    <p style="text-indent:20px;">C) zastapienie ekstrakcji skladowych pojedynczej opinii do niezaleznych zmiennych ekstrakcja tych skladowych w dictionary comprehension w oparciu o slownik selektorow<br></p>
 6) analiza opinii o wskazanym produkcie<br>
-    A) wyliczenie podstawowych statystyk<br>
-        a) liczba wszystkich opinii o produkcie<br>
-        b) liczba opinii z podana lista zalet<br>
-        c) liczba opinii z podana lista wad<br>
-        d) srednia ocena produktu<br>
-    B) narysowanie wykresow<br>
-        a) udzial poszczegolncyh rekomendacji w ogolnej liczbie opinii<br>
-        b) histogram czestosci wystapien poszczegolnych ocen (liczba gwiazdek)<br>
+    <p style="text-indent:20px;">A) wyliczenie podstawowych statystyk<br></p>
+        <p style="text-indent:40px;">a) liczba wszystkich opinii o produkcie<br></p>
+        <p style="text-indent:40px;">b) liczba opinii z podana lista zalet<br></p>
+        <p style="text-indent:40px;">c) liczba opinii z podana lista wad<br></p>
+        <p style="text-indent:40px;">d) srednia ocena produktu<br></p>
+    <p style="text-indent:20px;">B) narysowanie wykresow<br></p>
+        <p style="text-indent:40px;">a) udzial poszczegolncyh rekomendacji w ogolnej liczbie opinii<br></p>
+        <p style="text-indent:40px;">b) histogram czestosci wystapien poszczegolnych ocen (liczba gwiazdek)<br></p>
 7) przesienie gotowych czesci kodu do wlasciwego projektu<br>
-    A) znalezienie odpowiednich miejsc dla poszczegolnych elementow<br>
-    B) polaczenie z routingiem<br>
+    <p style="text-indent:20px;">A) znalezienie odpowiednich miejsc dla poszczegolnych elementow<br></p>
+    <p style="text-indent:20px;">B) polaczenie z routingiem<br></p>
 8) uruchomienie flask i jinja<br>
-    A) stworzenie bazy dla plikow jinja<br>
-    B) dodanie stron odwolujacych sie do bazy<br>
+    <p style="text-indent:20px;">A) stworzenie bazy dla plikow jinja<br></p>
+    <p style="text-indent:20px;">B) dodanie stron odwolujacych sie do bazy<br></p>
 9) dodanie funkcjonalnosci<br>
-    A) dzialajacy ekstraktor<br>
-    B) readme pojawiajace sie na stronie glownej<br>
+    <p style="text-indent:20px;">A) dzialajacy ekstraktor<br></p>
+    <p style="text-indent:20px;">B) readme pojawiajace sie na stronie glownej<br></p>
 
 ## Wykorzystane biblioteki
 
